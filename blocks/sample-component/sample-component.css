@@ -1,20 +1,20 @@
-.gc-header {
-  background-color: #007bff;
-  color: white;
-  padding: 16px;
-  font-size: 20px;
-  font-weight: bold;
+/* Godrej Capital Block Styles */
+.sample-component {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
   text-align: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .gc-logo-section {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #007bff;
   padding: 40px 20px;
-  background-color: #f0f0f0;
-  overflow: hidden;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .gc-logo-section::before,
@@ -44,22 +44,20 @@
 .gc-logo-text {
   position: relative;
   z-index: 2;
-  font-size: 24px;
-  font-weight: bold;
-  color: #000;
 }
 
 .gc-promo-text {
-  text-align: center;
-  padding: 20px;
   font-size: 16px;
   color: #333;
+  margin: 20px 0;
+}
+
+.gc-cta-wrapper {
+  margin-top: 10px;
 }
 
 .gc-cta-button {
-  display: block;
-  width: fit-content;
-  margin: 0 auto 20px;
+  display: inline-block;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
