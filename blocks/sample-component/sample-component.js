@@ -18,8 +18,7 @@ export default function decorate(block) {
   logo.textContent = logoText;
 
   logoSection.appendChild(logo);
-
-  // Promo Text
+  
   const promo = document.createElement('div');
   promo.className = 'gc-promo-text';
   promo.textContent = promoText;
