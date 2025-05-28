@@ -1,4 +1,4 @@
-.banner-container{
+.banner-container {
   display: flex;
   background-color: white;
   padding-top: 10px;
@@ -9,10 +9,6 @@
   width: 100%;
   font-size: 1.2rem;
   font-family: 'Helvetica Neue', sans-serif;
-}
-
-.banner-container {
-    width: 100%;
 }
 
 .banner-section {
@@ -26,7 +22,7 @@
 }
 
 .features {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .banner-separator {
@@ -38,8 +34,8 @@
   background-color: #ccc;
 }
 
-/* Medium screens (≤ 900px) */
-@media (max-width: 900px) {
+/* Medium screens (width <= 900px) */
+@media (width <= 900px) {
   .promo-banner .banner-container {
     flex-direction: column;
     padding: 15px;
@@ -56,8 +52,8 @@
   }
 }
 
-/* Small screens (≤ 600px) */
-@media (max-width: 600px) {
+/* Small screens (width <= 600px) */
+@media (width <= 600px) {
   .promo-banner .banner-container {
     padding: 10px;
   }
