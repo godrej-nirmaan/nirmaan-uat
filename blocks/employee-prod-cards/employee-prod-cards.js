@@ -84,7 +84,6 @@ export function createCard({
 }
 
 export default function decorate(block) {
-  console.log('Customer Base Card Block:', block);
 
   const cards = [];
   const cardElements = block.querySelectorAll(':scope > div');
