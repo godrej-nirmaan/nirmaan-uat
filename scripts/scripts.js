@@ -67,6 +67,91 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+export function createCard({ title, image, service, description, promo }) {
+  const card = document.createElement('div');
+  card.className = 'promo-card';
+
+  const header = document.createElement('div');
+  header.className = 'card-header';
+  header.textContent = title;
+
+  // Body
+  const body = document.createElement('div');
+  body.className = 'card-body';
+
+  // Icon + Service
+  const logoSection = document.createElement('div');
+  logoSection.className = 'logo-section';
+
+  const logoIcon = document.createElement('div');
+  logoIcon.className = 'logo-icon';
+  logoIcon.textContent = '🛒';
+
+  const logoTextWrapper = document.createElement('div');
+  const logoText = document.createElement('div');
+  logoText.className = 'logo-text';
+
+  const serviceName = document.createElement('div');
+  serviceName.className = 'service-name';
+  serviceName.textContent = service;
+
+  logoTextWrapper.appendChild(logoText);
+  logoTextWrapper.appendChild(serviceName);
+  logoSection.appendChild(logoIcon);
+  logoSection.appendChild(logoTextWrapper);
+
+  // Description
+  const desc = document.createElement('p');
+  desc.className = 'description';
+  desc.textContent = description;
+
+  // Divider
+  const divider = document.createElement('hr');
+  divider.className = 'divider';
+
+  // Promo
+  const promoSection = document.createElement('div');
+  promoSection.className = 'promo-section';
+
+  const promoIcon = document.createElement('div');
+  promoIcon.className = 'promo-icon';
+  promoIcon.textContent = '%';
+
+  const promoText = document.createElement('div');
+  promoText.className = 'promo-text';
+  promoText.textContent = promo;
+
+  promoSection.appendChild(promoIcon);
+  promoSection.appendChild(promoText);
+
+  // Buttons
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'card-buttons';
+
+  const btnPrimary = document.createElement('button');
+  btnPrimary.className = 'btn primary';
+  btnPrimary.textContent = 'Avail Now';
+
+  const btnSecondary = document.createElement('button');
+  btnSecondary.className = 'btn secondary';
+  btnSecondary.textContent = 'Know More';
+
+  buttonContainer.appendChild(btnPrimary);
+  buttonContainer.appendChild(btnSecondary);
+
+  // Assemble
+  body.appendChild(logoSection);
+  body.appendChild(desc);
+  body.appendChild(divider);
+  body.appendChild(promoSection);
+  body.appendChild(buttonContainer);
+
+  card.appendChild(header);
+  card.appendChild(body);
+
+  return card;
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element

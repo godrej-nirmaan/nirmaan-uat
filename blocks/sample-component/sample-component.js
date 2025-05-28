@@ -1,41 +1,42 @@
 export default function decorate(block) {
-  const cols = [...block.firstElementChild.children];
-
-  const logoText = cols[0]?.textContent?.trim();
-  const promoText = cols[1]?.textContent?.trim();
-  const ctaText = cols[2]?.textContent?.trim();
-
-  // Clear existing content
-  block.textContent = '';
   block.classList.add('sample-component');
 
-  // Logo Section
+  const picture = block.querySelector('picture');
+  const paragraphs = block.querySelectorAll('p');
+
+  // Clear block content
+  block.textContent = '';
+
+  // === Logo Section ===
   const logoSection = document.createElement('div');
   logoSection.className = 'gc-logo-section';
 
-  const logo = document.createElement('div');
-  logo.className = 'gc-logo-text';
-  logo.textContent = logoText;
+  if (picture) {
+    const logoWrapper = document.createElement('div');
+    logoWrapper.className = 'gc-logo-image';
+    logoWrapper.appendChild(picture);
+    logoSection.appendChild(logoWrapper);
+  }
 
-  logoSection.appendChild(logo);
-  
-  const promo = document.createElement('div');
-  promo.className = 'gc-promo-text';
-  promo.textContent = promoText;
+  // === Promo Text ===
+  const promoText = document.createElement('div');
+  promoText.className = 'gc-promo-text';
+  if (paragraphs[0]) promoText.textContent = paragraphs[0].textContent;
 
-  // CTA Button
+  // === CTA Button ===
   const ctaWrapper = document.createElement('div');
   ctaWrapper.className = 'gc-cta-wrapper';
 
-  const cta = document.createElement('a');
-  cta.className = 'gc-cta-button';
-  cta.href = '#';
-  cta.textContent = ctaText;
+  if (paragraphs[1]) {
+    const cta = document.createElement('a');
+    cta.className = 'gc-cta-button';
+    cta.href = '#';
+    cta.textContent = paragraphs[1].textContent;
+    ctaWrapper.appendChild(cta);
+  }
 
-  ctaWrapper.appendChild(cta);
-
-  // Append all to block
+  // === Append to block ===
   block.appendChild(logoSection);
-  block.appendChild(promo);
+  block.appendChild(promoText);
   block.appendChild(ctaWrapper);
 }

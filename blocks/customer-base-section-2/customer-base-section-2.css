@@ -1,0 +1,74 @@
+.cb-section-2-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  gap: 20px;
+  justify-content: space-between;
+  font-family: var(--main-font);
+}
+
+.cb-card-image {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+}
+
+.cb-section-2-button {
+  padding: 10px 20px;
+  background-color: var(--purple, #6a1b9a);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--main-font);
+}
+
+.cb-section-2-desc {
+  font-size: var(--big-body-size);
+  font-weight: 700;
+}
+
+.cb-section-2-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 400px;
+  gap: 10px;
+}
+
+.cb-section-2-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: var(--medium-body-size);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cb-section-2-main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cb-section-2-wrapper {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .cb-section-2-button {
+    width: 100%;
+  }
+
+  .cb-card-image {
+    max-width: 100%;
+    height: auto;
+  }
+}
