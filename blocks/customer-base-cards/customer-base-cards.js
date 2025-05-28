@@ -1,4 +1,10 @@
-export function createCard({ title, image, service, description, promo }) {
+export function createCard({
+  title,
+  image,
+  service,
+  description,
+  promo,
+}) {
   const card = document.createElement('div');
   card.className = 'promo-card';
 
@@ -10,12 +16,12 @@ export function createCard({ title, image, service, description, promo }) {
   body.className = 'card-body';
 
   const cardService = document.createElement('h4');
-  cardService.className = "card-service";
+  cardService.className = 'card-service';
   cardService.textContent = service;
-  const upperSection = document.createElement('div');
-  upperSection.className = "upper-section"
 
-  // === Image Section (replaces logo section) ===
+  const upperSection = document.createElement('div');
+  upperSection.className = 'upper-section';
+
   if (image) {
     const img = document.createElement('img');
     img.className = 'card-image';
@@ -23,17 +29,16 @@ export function createCard({ title, image, service, description, promo }) {
     img.alt = service || title;
     upperSection.appendChild(img);
   }
+
   upperSection.appendChild(cardService);
 
-  // === Description ===
   const desc = document.createElement('p');
   desc.className = 'description';
   desc.textContent = description;
-  
+
   const divider = document.createElement('hr');
   divider.className = 'divider';
 
-  // === Promo Section ===
   const promoSection = document.createElement('div');
   promoSection.className = 'promo-section';
 
@@ -48,7 +53,6 @@ export function createCard({ title, image, service, description, promo }) {
   promoSection.appendChild(promoIcon);
   promoSection.appendChild(promoText);
 
-  // === Buttons ===
   const buttonContainer = document.createElement('div');
   buttonContainer.className = 'card-buttons';
 
@@ -63,15 +67,13 @@ export function createCard({ title, image, service, description, promo }) {
   buttonContainer.appendChild(btnPrimary);
   buttonContainer.appendChild(btnSecondary);
 
-  // === Promo + Buttons Wrapper ===
   const promoWrapper = document.createElement('div');
   promoWrapper.className = 'promo-wrapper';
   promoWrapper.appendChild(promoSection);
   promoWrapper.appendChild(buttonContainer);
 
-  // === Assemble Card ===
-  body.appendChild(upperSection)
-  body.appendChild(desc)
+  body.appendChild(upperSection);
+  body.appendChild(desc);
   body.appendChild(divider);
   body.appendChild(promoWrapper);
   card.appendChild(header);
@@ -80,9 +82,8 @@ export function createCard({ title, image, service, description, promo }) {
   return card;
 }
 
-
 export default function decorate(block) {
-    console.log("Customer Base Card Block: " , block)
+  // console.log('Customer Base Card Block:', block);
   const cards = [];
   const cardElements = block.querySelectorAll(':scope > div');
 
@@ -91,13 +92,12 @@ export default function decorate(block) {
     const image = card.querySelector('picture > img');
     const imageUrl = image?.getAttribute('src') || '';
 
-
     const cardData = {
       title: texts[0]?.textContent.trim() || '',
-      image: imageUrl || "",
+      image: imageUrl || '',
       service: texts[1]?.textContent.trim() || '',
       description: texts[2]?.textContent.trim() || '',
-      promo: texts[3]?.textContent.trim() || ''
+      promo: texts[3]?.textContent.trim() || '',
     };
 
     cards.push(cardData);
@@ -111,7 +111,7 @@ export default function decorate(block) {
   const carousel = document.createElement('div');
   carousel.className = 'carousel';
 
-  cards.forEach(cardData => {
+  cards.forEach((cardData) => {
     const cardEl = createCard(cardData);
     carousel.appendChild(cardEl);
   });
@@ -132,12 +132,10 @@ export default function decorate(block) {
     carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
   });
 
-  // Autoplay
   let autoplayInterval = setInterval(() => {
     carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
   }, 4000);
 
-  // Pause on hover
   carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
   carouselWrapper.addEventListener('mouseleave', () => {
     autoplayInterval = setInterval(() => {
@@ -145,7 +143,6 @@ export default function decorate(block) {
     }, 4000);
   });
 
-  // Swipe support
   let startX = 0;
   carousel.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
@@ -166,4 +163,3 @@ export default function decorate(block) {
   carouselWrapper.appendChild(nextBtn);
   block.appendChild(carouselWrapper);
 }
-

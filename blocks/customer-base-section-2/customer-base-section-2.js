@@ -1,11 +1,11 @@
 export default function decorate(block) {
-  console.log("Block is this is: ", block);
+  // console.log('Block is this is:', block);
 
-  const image = block.querySelector("picture > img");
+  const image = block.querySelector('picture > img');
   const imageUrl = image?.getAttribute('src') || '';
 
   const mainContainer = document.createElement('div');
-  mainContainer.className = "cb-section-2-main-container";
+  mainContainer.className = 'cb-section-2-main-container';
 
   if (imageUrl) {
     const img = document.createElement('img');
@@ -14,7 +14,7 @@ export default function decorate(block) {
     mainContainer.appendChild(img);
   }
 
-  const paragraphs = block.querySelectorAll("p");
+  const paragraphs = block.querySelectorAll('p');
 
   if (paragraphs[0]) {
     const description = document.createElement('p');
@@ -24,8 +24,8 @@ export default function decorate(block) {
   }
 
   if (paragraphs[1]) {
-    const button = document.createElement("button");
-    button.className = "cb-section-2-button";
+    const button = document.createElement('button');
+    button.className = 'cb-section-2-button';
     button.textContent = paragraphs[1].textContent;
     mainContainer.appendChild(button);
   }

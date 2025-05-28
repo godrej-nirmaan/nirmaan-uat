@@ -20,7 +20,6 @@ import {
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
@@ -29,14 +28,16 @@ function buildHeroBlock(main) {
 }
 
 /**
- * load fonts.css and set a session storage flag
+ * Loads fonts.css and sets a session storage flag.
  */
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes('localhost')) {
+      sessionStorage.setItem('fonts-loaded', 'true');
+    }
   } catch (e) {
-    // do nothing
+    // fail silently
   }
 }
 
@@ -48,7 +49,6 @@ function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
@@ -57,9 +57,7 @@ function buildAutoBlocks(main) {
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
   buildAutoBlocks(main);
@@ -67,6 +65,11 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+/**
+ * Creates a promotional card element.
+ * @param {Object} param0 Card data
+ * @returns {HTMLElement} The card element
+ */
 export function createCard({ title, image, service, description, promo }) {
   const card = document.createElement('div');
   card.className = 'promo-card';
@@ -75,11 +78,9 @@ export function createCard({ title, image, service, description, promo }) {
   header.className = 'card-header';
   header.textContent = title;
 
-  // Body
   const body = document.createElement('div');
   body.className = 'card-body';
 
-  // Icon + Service
   const logoSection = document.createElement('div');
   logoSection.className = 'logo-section';
 
@@ -100,16 +101,13 @@ export function createCard({ title, image, service, description, promo }) {
   logoSection.appendChild(logoIcon);
   logoSection.appendChild(logoTextWrapper);
 
-  // Description
   const desc = document.createElement('p');
   desc.className = 'description';
   desc.textContent = description;
 
-  // Divider
   const divider = document.createElement('hr');
   divider.className = 'divider';
 
-  // Promo
   const promoSection = document.createElement('div');
   promoSection.className = 'promo-section';
 
@@ -124,7 +122,6 @@ export function createCard({ title, image, service, description, promo }) {
   promoSection.appendChild(promoIcon);
   promoSection.appendChild(promoText);
 
-  // Buttons
   const buttonContainer = document.createElement('div');
   buttonContainer.className = 'card-buttons';
 
@@ -139,7 +136,6 @@ export function createCard({ title, image, service, description, promo }) {
   buttonContainer.appendChild(btnPrimary);
   buttonContainer.appendChild(btnSecondary);
 
-  // Assemble
   body.appendChild(logoSection);
   body.appendChild(desc);
   body.appendChild(divider);
@@ -167,12 +163,11 @@ async function loadEager(doc) {
   }
 
   try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
   } catch (e) {
-    // do nothing
+    // fail silently
   }
 }
 
@@ -185,7 +180,7 @@ async function loadLazy(doc) {
   await loadSections(main);
 
   const { hash } = window.location;
-  const element = hash ? doc.getElementById(hash.substring(1)) : false;
+  const element = hash ? doc.getElementById(hash.substring(1)) : null;
   if (hash && element) element.scrollIntoView();
 
   loadHeader(doc.querySelector('header'));
@@ -200,9 +195,7 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
-  // load anything that can be postponed to the latest here
 }
 
 async function loadPage() {

@@ -1,9 +1,9 @@
 export default function decorate(block) {
-  const image = block.querySelector("picture > img");
+  const image = block.querySelector('picture > img');
   const imageUrl = image?.getAttribute('src') || '';
 
   const mainContainer = document.createElement('div');
-  mainContainer.className = "cb-search-main-container";
+  mainContainer.className = 'cb-search-main-container';
 
   // === Image Section ===
   if (imageUrl) {
@@ -14,7 +14,7 @@ export default function decorate(block) {
   }
 
   // === Description ===
-  const desc = block.querySelector("p");
+  const desc = block.querySelector('p');
   if (desc) {
     const description = document.createElement('p');
     description.className = 'cb-search-desc';
