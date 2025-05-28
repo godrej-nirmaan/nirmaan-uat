@@ -1,6 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
 
-
 :root {
   --light-green: #83c341;
   --purple: #712975;
@@ -27,11 +26,11 @@ p {
 }
 
 body {
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-img{
+img {
   width: 200px;
   height: 200px;
 }
