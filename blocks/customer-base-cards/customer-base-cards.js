@@ -1,106 +1,46 @@
-export function createCard({
-  title,
-  image,
-  service,
-  description,
-  promo,
-}) {
+export function createCard({ title, image, service, description, promo }) {
   const card = document.createElement('div');
   card.className = 'promo-card';
 
-  const header = document.createElement('div');
-  header.className = 'card-header';
-  header.textContent = title;
-
-  const body = document.createElement('div');
-  body.className = 'card-body';
-
-  const cardService = document.createElement('h4');
-  cardService.className = 'card-service';
-  cardService.textContent = service;
-
-  const upperSection = document.createElement('div');
-  upperSection.className = 'upper-section';
-
-  if (image) {
-    const img = document.createElement('img');
-    img.className = 'card-image';
-    img.src = image;
-    img.alt = service || title;
-    upperSection.appendChild(img);
-  }
-
-  upperSection.appendChild(cardService);
-
-  const desc = document.createElement('p');
-  desc.className = 'description';
-  desc.textContent = description;
-
-  const divider = document.createElement('hr');
-  divider.className = 'divider';
-
-  const promoSection = document.createElement('div');
-  promoSection.className = 'promo-section';
-
-  const promoIcon = document.createElement('div');
-  promoIcon.className = 'promo-icon';
-  promoIcon.textContent = '%';
-
-  const promoText = document.createElement('div');
-  promoText.className = 'promo-text';
-  promoText.textContent = promo;
-
-  promoSection.appendChild(promoIcon);
-  promoSection.appendChild(promoText);
-
-  const buttonContainer = document.createElement('div');
-  buttonContainer.className = 'card-buttons';
-
-  const btnPrimary = document.createElement('button');
-  btnPrimary.className = 'btn primary';
-  btnPrimary.textContent = 'Avail Now';
-
-  const btnSecondary = document.createElement('button');
-  btnSecondary.className = 'btn secondary';
-  btnSecondary.textContent = 'Know More';
-
-  buttonContainer.appendChild(btnPrimary);
-  buttonContainer.appendChild(btnSecondary);
-
-  const promoWrapper = document.createElement('div');
-  promoWrapper.className = 'promo-wrapper';
-  promoWrapper.appendChild(promoSection);
-  promoWrapper.appendChild(buttonContainer);
-
-  body.appendChild(upperSection);
-  body.appendChild(desc);
-  body.appendChild(divider);
-  body.appendChild(promoWrapper);
-  card.appendChild(header);
-  card.appendChild(body);
+  card.innerHTML = `
+    <div class="card-header">${title}</div>
+    <div class="card-body">
+      <div class="upper-section">
+        ${image ? `<img class="card-image" src="${image}" alt="${service || title}">` : ''}
+        <h4 class="card-service">${service}</h4>
+      </div>
+      <p class="description">${description}</p>
+      <hr class="divider">
+      <div class="promo-wrapper">
+        <div class="promo-section">
+          <div class="promo-icon">%</div>
+          <div class="promo-text">${promo}</div>
+        </div>
+        <div class="card-buttons">
+          <button class="btn primary">Avail Now</button>
+          <button class="btn secondary">Know More</button>
+        </div>
+      </div>
+    </div>
+  `;
 
   return card;
 }
 
 export default function decorate(block) {
-  // console.log('Customer Base Card Block:', block);
-  const cards = [];
-  const cardElements = block.querySelectorAll(':scope > div');
+  const fragment = document.createDocumentFragment();
 
-  cardElements.forEach((card) => {
+  const cards = Array.from(block.querySelectorAll(':scope > div')).map((card) => {
     const texts = card.querySelectorAll('p');
-    const image = card.querySelector('picture > img');
-    const imageUrl = image?.getAttribute('src') || '';
+    const image = card.querySelector('picture img')?.getAttribute('src') || '';
 
-    const cardData = {
+    return {
       title: texts[0]?.textContent.trim() || '',
-      image: imageUrl || '',
+      image,
       service: texts[1]?.textContent.trim() || '',
       description: texts[2]?.textContent.trim() || '',
       promo: texts[3]?.textContent.trim() || '',
     };
-
-    cards.push(cardData);
   });
 
   block.innerHTML = '';
@@ -112,8 +52,7 @@ export default function decorate(block) {
   carousel.className = 'carousel';
 
   cards.forEach((cardData) => {
-    const cardEl = createCard(cardData);
-    carousel.appendChild(cardEl);
+    carousel.appendChild(createCard(cardData));
   });
 
   const prevBtn = document.createElement('button');
@@ -124,23 +63,18 @@ export default function decorate(block) {
   nextBtn.className = 'carousel-btn next';
   nextBtn.textContent = '›';
 
-  prevBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
-  });
+  const scrollCarousel = (direction) => {
+    carousel.scrollBy({ left: direction * carousel.offsetWidth, behavior: 'smooth' });
+  };
 
-  nextBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
-  });
+  prevBtn.addEventListener('click', () => scrollCarousel(-1));
+  nextBtn.addEventListener('click', () => scrollCarousel(1));
 
-  let autoplayInterval = setInterval(() => {
-    carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
-  }, 4000);
+  let autoplay = setInterval(() => scrollCarousel(1), 4000);
 
-  carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+  carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoplay));
   carouselWrapper.addEventListener('mouseleave', () => {
-    autoplayInterval = setInterval(() => {
-      carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
-    }, 4000);
+    autoplay = setInterval(() => scrollCarousel(1), 4000);
   });
 
   let startX = 0;
@@ -149,17 +83,11 @@ export default function decorate(block) {
   });
 
   carousel.addEventListener('touchend', (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-    if (diff > 50) {
-      carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
-    } else if (diff < -50) {
-      carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
-    }
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) scrollCarousel(diff > 0 ? 1 : -1);
   });
 
-  carouselWrapper.appendChild(prevBtn);
-  carouselWrapper.appendChild(carousel);
-  carouselWrapper.appendChild(nextBtn);
-  block.appendChild(carouselWrapper);
+  carouselWrapper.append(prevBtn, carousel, nextBtn);
+  fragment.appendChild(carouselWrapper);
+  block.appendChild(fragment);
 }

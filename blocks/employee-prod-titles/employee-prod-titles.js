@@ -1,9 +1,9 @@
 export default function decorate(block) {
-  const images = block.querySelectorAll('picture');
-  const titles = block.querySelectorAll('h2');
-  const descriptions = block.querySelectorAll('p');
+  const fragment = document.createDocumentFragment();
 
-  block.textContent = '';
+  const image = block.querySelector('picture');
+  const title = block.querySelector('h2');
+  const description = block.querySelector('p');
 
   const mainContainer = document.createElement('div');
   mainContainer.className = 'main-container';
@@ -11,28 +11,30 @@ export default function decorate(block) {
   const imageTitleContainer = document.createElement('div');
   imageTitleContainer.className = 'image-title-container';
 
-  if (images.length > 0) {
+  if (image) {
     const imageWrapper = document.createElement('div');
     imageWrapper.className = 'image-wrapper';
-    imageWrapper.appendChild(images[0]);
+    imageWrapper.appendChild(image);
     imageTitleContainer.appendChild(imageWrapper);
   }
 
-  if (titles.length > 0) {
+  if (title) {
     const titleEl = document.createElement('h2');
     titleEl.className = 'title';
-    titleEl.textContent = titles[0].textContent;
+    titleEl.textContent = title.textContent.trim();
     imageTitleContainer.appendChild(titleEl);
   }
 
   mainContainer.appendChild(imageTitleContainer);
 
-  if (descriptions.length > 0) {
+  if (description) {
     const descEl = document.createElement('p');
     descEl.className = 'description';
-    descEl.textContent = descriptions[0].textContent;
+    descEl.textContent = description.textContent.trim();
     mainContainer.appendChild(descEl);
   }
 
-  block.appendChild(mainContainer);
+  block.innerHTML = '';
+  fragment.appendChild(mainContainer);
+  block.appendChild(fragment);
 }

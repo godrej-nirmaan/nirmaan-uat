@@ -2,61 +2,37 @@ function createContactCard(img1, img2, text, linkText) {
   const card = document.createElement('div');
   card.className = 'contact-card';
 
-  const leftImage = document.createElement('div');
-  leftImage.className = 'contact-card-img';
-
-  const imgEl = document.createElement('img');
-  imgEl.src = img1;
-  imgEl.alt = 'Card image';
-  leftImage.appendChild(imgEl);
-
-  const content = document.createElement('div');
-  content.className = 'contact-card-content';
-
-  const icon = document.createElement('img');
-  icon.src = img2;
-  icon.alt = 'Icon';
-  icon.className = 'contact-card-icon';
-
-  const paragraph = document.createElement('p');
-  paragraph.textContent = text;
-
-  const button = document.createElement('a');
-  button.className = 'contact-card-button';
-  button.textContent = linkText;
-
-  content.appendChild(icon);
-  content.appendChild(paragraph);
-  content.appendChild(button);
-
-  card.appendChild(leftImage);
-  card.appendChild(content);
+  card.innerHTML = `
+    <div class="contact-card-img">
+      <img src="${img1}" alt="Card image">
+    </div>
+    <div class="contact-card-content">
+      <img src="${img2}" alt="Icon" class="contact-card-icon">
+      <p>${text}</p>
+      <a class="contact-card-button">${linkText}</a>
+    </div>
+  `;
 
   return card;
 }
 
 function decorate(block) {
-  const originalCards = block.querySelectorAll(':scope > div');
+  const fragment = document.createDocumentFragment();
 
-  const cardData = Array.from(originalCards).map((card) => {
+  block.querySelectorAll(':scope > div').forEach((card) => {
     const imgs = card.querySelectorAll('picture img');
     const texts = card.querySelectorAll('p');
 
-    const img1 = imgs[0] ? imgs[0].src : '';
-    const img2 = imgs[1] ? imgs[1].src : '';
-    const text = texts[0] ? texts[0].textContent : '';
-    const link = texts[1] || {};
-    const linkText = link.textContent || 'Learn More';
+    const img1 = imgs[0]?.src || '';
+    const img2 = imgs[1]?.src || '';
+    const text = texts[0]?.textContent.trim() || '';
+    const linkText = texts[1]?.textContent.trim() || 'Learn More';
 
-    return { img1, img2, text, linkText };
+    fragment.appendChild(createContactCard(img1, img2, text, linkText));
   });
 
   block.innerHTML = '';
-
-  cardData.forEach(({ img1, img2, text, linkText }) => {
-    const contactCard = createContactCard(img1, img2, text, linkText);
-    block.appendChild(contactCard);
-  });
+  block.appendChild(fragment);
 }
 
 export default decorate;

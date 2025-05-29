@@ -1,40 +1,36 @@
 export default function decorate(block) {
-    // Extract content first
-    const paragraphs = block.querySelectorAll('p');
-    const title_text = block.querySelector("h2");
+  const fragment = document.createDocumentFragment();
 
-    const apply_now_button_text = paragraphs[0]?.textContent || "";
-    const desc_text = paragraphs[1]?.textContent || "";
-    const hastag_text = paragraphs[2]?.textContent || "";
-    const watch_now_button_text = paragraphs[3]?.textContent || "";
-    const title_content = title_text?.textContent || "";
+  const paragraphs = block.querySelectorAll('p');
+  const titleText = block.querySelector('h2')?.textContent.trim() || '';
 
-    // Now it's safe to clear the block
-    block.innerHTML = '';
+  const applyNowText = paragraphs[0]?.textContent.trim() || '';
+  const descText = paragraphs[1]?.textContent.trim() || '';
+  const hashtagText = paragraphs[2]?.textContent.trim() || '';
+  const watchNowText = paragraphs[3]?.textContent.trim() || '';
 
-    const title = document.createElement("h2");
-    title.className = "fyb-title";
-    title.textContent = title_content;
+  block.innerHTML = '';
 
-    const apply_now_button = document.createElement("button");
-    apply_now_button.className = "fyb-apply-now-button";
-    apply_now_button.textContent = apply_now_button_text;
+  const title = document.createElement('h2');
+  title.className = 'fyb-title';
+  title.textContent = titleText;
 
-    const desc = document.createElement("p");
-    desc.className = "fyb-desc";
-    desc.textContent = desc_text;
+  const applyNowBtn = document.createElement('button');
+  applyNowBtn.className = 'fyb-apply-now-button';
+  applyNowBtn.textContent = applyNowText;
 
-    const hastag = document.createElement("p");
-    hastag.className = "fyb-hastag";
-    hastag.textContent = hastag_text;
+  const description = document.createElement('p');
+  description.className = 'fyb-desc';
+  description.textContent = descText;
 
-    const watch_now_button = document.createElement("button");
-    watch_now_button.className = "fyb-watch-now-button";
-    watch_now_button.textContent = watch_now_button_text;
+  const hashtag = document.createElement('p');
+  hashtag.className = 'fyb-hastag';
+  hashtag.textContent = hashtagText;
 
-    block.appendChild(title);
-    block.appendChild(apply_now_button);
-    block.appendChild(desc);
-    block.appendChild(hastag);
-    block.appendChild(watch_now_button);
+  const watchNowBtn = document.createElement('button');
+  watchNowBtn.className = 'fyb-watch-now-button';
+  watchNowBtn.textContent = watchNowText;
+
+  fragment.append(title, applyNowBtn, description, hashtag, watchNowBtn);
+  block.appendChild(fragment);
 }
