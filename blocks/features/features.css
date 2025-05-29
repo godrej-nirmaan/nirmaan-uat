@@ -35,8 +35,8 @@
   background-color: #ccc;
 }
 
-/* Medium screens (max-width: 900px) */
-@media (max-width: 900px) {
+/* Medium screens (width <= 900px) */
+@media (width <= 900px) {
   .banner-container {
     flex-direction: column;
     padding: 15px;
@@ -54,8 +54,8 @@
   }
 }
 
-/* Small screens (max-width: 600px) */
-@media (max-width: 600px) {
+/* Small screens (width <= 600px) */
+@media (width <= 600px) {
   .banner-container {
     padding: 10px;
   }
@@ -64,7 +64,8 @@
     text-align: center;
     padding: 10px;
   }
-  .main-container img{
+
+  .main-container img {
     display: none;
   }
 

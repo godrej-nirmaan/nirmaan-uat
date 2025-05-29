@@ -61,6 +61,7 @@
 .contact-card-content p {
   font-size: 1.5em;
   margin: 0;
+  text-align: left;
 }
 
 .contact-card-icon {
@@ -81,7 +82,7 @@
 }
 
 /* Responsive: Tablets and below */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .contact-card {
     flex-direction: column;
     text-align: center;
@@ -111,7 +112,7 @@
 }
 
 /* Responsive: Small screens */
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .connect-with-us-section {
     padding: 20px;
   }

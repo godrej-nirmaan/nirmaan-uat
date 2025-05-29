@@ -17,7 +17,7 @@ export default function decorate(block) {
     title.textContent = title_content;
 
     const apply_now_button = document.createElement("button");
-    apply_now_button.className = "fyb-apply_now_button";
+    apply_now_button.className = "fyb-apply-now-button";
     apply_now_button.textContent = apply_now_button_text;
 
     const desc = document.createElement("p");
@@ -29,9 +29,9 @@ export default function decorate(block) {
     hastag.textContent = hastag_text;
 
     const watch_now_button = document.createElement("button");
-    watch_now_button.className = "fyb-watch_now_button";
+    watch_now_button.className = "fyb-watch-now-button";
     watch_now_button.textContent = watch_now_button_text;
-    
+
     block.appendChild(title);
     block.appendChild(apply_now_button);
     block.appendChild(desc);

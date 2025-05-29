@@ -20,8 +20,8 @@
   font-weight: bold;
 }
 
-.fyb-apply_now_button,
-.fyb-watch_now_button {
+.fyb-apply-now-button,
+.fyb-watch-now-button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 10px;
@@ -31,13 +31,13 @@
   box-sizing: border-box;
 }
 
-.fyb-apply_now_button {
+.fyb-apply-now-button {
   background-color: var(--light-green);
   color: white;
   border: none;
 }
 
-.fyb-watch_now_button {
+.fyb-watch-now-button {
   background-color: white;
   color: var(--light-green);
   border: 2px solid var(--light-green);
@@ -55,7 +55,7 @@
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .fyb-section {
     flex-direction: column;
     align-items: center;
@@ -66,8 +66,8 @@
     font-size: 1.5em;
   }
 
-  .fyb-apply_now_button,
-  .fyb-watch_now_button {
+  .fyb-apply-now-button,
+  .fyb-watch-now-button {
     max-width: 100%;
   }
 
