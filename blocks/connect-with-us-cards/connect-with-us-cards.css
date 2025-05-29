@@ -1,0 +1,127 @@
+.connect-with-us-section {
+  padding: 40px;
+  background-color: var(--green-bg);
+  font-family: var(--main-font);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.connect-with-us-section p {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.connect-with-us-cards.block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.contact-card-img {
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.contact-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+}
+
+.contact-card-content p {
+  font-size: 1.5em;
+  margin: 0;
+  text-align: left;
+}
+
+.contact-card-icon {
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
+
+.contact-card-button {
+  background-color: var(--light-green);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+/* Responsive: Tablets and below */
+@media (width <= 768px) {
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-card-img {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .contact-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-card-content {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .contact-card-button {
+    margin: 0 auto;
+    align-self: center;
+  }
+}
+
+/* Responsive: Small screens */
+@media (width <= 480px) {
+  .connect-with-us-section {
+    padding: 20px;
+  }
+
+  .connect-with-us-section p {
+    font-size: 1.5em;
+  }
+
+  .contact-card-content p {
+    font-size: 1.2em;
+  }
+}

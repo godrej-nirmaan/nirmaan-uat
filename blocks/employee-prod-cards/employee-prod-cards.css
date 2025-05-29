@@ -3,3 +3,16 @@
     padding: 5px 50px;
 }
 
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .employee-prod-cards-container {
+    padding: 20px;
+  }
+}
+
+@media (width <= 480px) {
+  .employee-prod-cards-container{
+    padding: 10px;
+  }
+}

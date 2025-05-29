@@ -1,14 +1,14 @@
 .banner-container {
   display: flex;
   background-color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   width: 100%;
   font-size: 1.2rem;
   font-family: 'Helvetica Neue', sans-serif;
+  flex-wrap: nowrap; /* Prevent wrapping on large screens */
 }
 
 .banner-section {
@@ -18,11 +18,12 @@
   font-size: 1.2em;
   position: relative;
   padding: 10px;
-  width: 100% !important;
+  box-sizing: border-box;
 }
 
 .features {
-  width: 100% !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .banner-separator {
@@ -36,29 +37,39 @@
 
 /* Medium screens (width <= 900px) */
 @media (width <= 900px) {
-  .promo-banner .banner-container {
+  .banner-container {
     flex-direction: column;
     padding: 15px;
-    text-align: center;
+    gap: 40px;
   }
 
-  .promo-banner .banner-section {
-    padding: 15px 10px;
+  .banner-section {
+    width: 100%;
     font-size: 1.1em;
+    padding: 15px 10px;
   }
 
-  .promo-banner .banner-separator {
+  .banner-separator {
     display: none;
   }
 }
 
 /* Small screens (width <= 600px) */
 @media (width <= 600px) {
-  .promo-banner .banner-container {
+  .banner-container {
     padding: 10px;
   }
 
-  .promo-banner .banner-section {
+  .main-container {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .main-container img {
+    display: none;
+  }
+
+  .banner-section {
     font-size: 1em;
     padding: 10px 5px;
   }

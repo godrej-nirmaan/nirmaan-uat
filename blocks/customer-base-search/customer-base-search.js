@@ -1,24 +1,26 @@
 export default function decorate(block) {
-  const image = block.querySelector('picture > img');
-  const imageUrl = image?.getAttribute('src') || '';
+  const fragment = document.createDocumentFragment();
+
+  const imageSrc = block.querySelector('picture img')?.getAttribute('src') || '';
+  const descriptionText = block.querySelector('p')?.textContent.trim() || '';
 
   const mainContainer = document.createElement('div');
   mainContainer.className = 'cb-search-main-container';
 
   // === Image Section ===
-  if (imageUrl) {
+  if (imageSrc) {
     const img = document.createElement('img');
     img.className = 'cb-card-image';
-    img.src = imageUrl;
+    img.src = imageSrc;
+    img.alt = 'Search Card Image';
     mainContainer.appendChild(img);
   }
 
   // === Description ===
-  const desc = block.querySelector('p');
-  if (desc) {
+  if (descriptionText) {
     const description = document.createElement('p');
     description.className = 'cb-search-desc';
-    description.textContent = desc.textContent;
+    description.textContent = descriptionText;
     mainContainer.appendChild(description);
   }
 
@@ -26,20 +28,14 @@ export default function decorate(block) {
   const searchWrapper = document.createElement('div');
   searchWrapper.className = 'cb-search-wrapper';
 
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.placeholder = 'Search...';
-  input.className = 'cb-search-input';
+  searchWrapper.innerHTML = `
+    <input type="text" class="cb-search-input" placeholder="Search..." />
+    <button class="cb-search-button">Search</button>
+  `;
 
-  const button = document.createElement('button');
-  button.className = 'cb-search-button';
-  button.textContent = 'Search';
-
-  searchWrapper.appendChild(input);
-  searchWrapper.appendChild(button);
   mainContainer.appendChild(searchWrapper);
+  fragment.appendChild(mainContainer);
 
-  // Clear and append
   block.innerHTML = '';
-  block.appendChild(mainContainer);
+  block.appendChild(fragment);
 }

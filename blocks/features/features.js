@@ -1,27 +1,26 @@
 export default function decorate(block) {
-    const paragraphs = block.querySelectorAll('p');
-    const features = Array.from(paragraphs).map(p => p.textContent.trim());
+  const features = Array.from(block.querySelectorAll('p')).map(p => p.textContent.trim());
 
-    // Clear existing content
-    block.textContent = '';
+  const fragment = document.createDocumentFragment();
 
-    // === Banner Container ===
-    const banner = document.createElement('div');
-    banner.className = 'banner-container';
+  const banner = document.createElement('div');
+  banner.className = 'banner-container';
 
-    features.forEach((feature, index) => {
-        const section = document.createElement('div');
-        section.className = 'banner-section';
-        section.textContent = feature;
+  features.forEach((feature, index) => {
+    const section = document.createElement('div');
+    section.className = 'banner-section';
+    section.textContent = feature;
 
-        if (index < features.length - 1) {
-            const separator = document.createElement('div');
-            separator.className = 'banner-separator';
-            section.appendChild(separator);
-        }
+    if (index < features.length - 1) {
+      const separator = document.createElement('div');
+      separator.className = 'banner-separator';
+      section.appendChild(separator);
+    }
 
-        banner.appendChild(section);
-    });
+    banner.appendChild(section);
+  });
 
-    block.appendChild(banner);
+  block.innerHTML = '';
+  fragment.appendChild(banner);
+  block.appendChild(fragment);
 }
