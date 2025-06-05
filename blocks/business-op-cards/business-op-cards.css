@@ -1,11 +1,11 @@
 .business-op-cards-container {
-    padding: 5px 50px;
+    padding: 5px 40px;
 }
 
 /* Responsive adjustments */
 @media (width <=768px) {
     .business-op-cards-container {
-        padding: 20px;
+        padding: 10px;
     }
 }
 
