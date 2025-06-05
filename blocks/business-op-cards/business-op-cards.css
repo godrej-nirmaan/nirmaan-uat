@@ -5,7 +5,7 @@
 /* Responsive adjustments */
 @media (width <=768px) {
     .business-op-cards-container {
-        padding: 20px;
+        padding: 10px;
     }
 }
 
