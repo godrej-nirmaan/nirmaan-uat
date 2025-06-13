@@ -1,34 +1,29 @@
 export default function decorate(block) {
-    const imgs = block.querySelectorAll('picture');
-    const links = block.querySelectorAll('p');
-    console.log("All imgs" , imgs);
-    console.log("All links" , links);
+  const mainDiv = document.createElement('div');
+  mainDiv.className = 'footer-right';
 
-    const mainDiv = document.createElement('div');
-    mainDiv.className = 'footer-right';
-    imgs.forEach((img, index) => {
-        const imgElement = img.querySelector('img');
-        const linkElement = links[index];
-        if (imgElement && linkElement) {
-            imgElement.classList.add('footer-right-img');
-            imgElement.setAttribute('loading', 'lazy');
-            imgElement.setAttribute('alt', `Footer image ${index + 1}`);
-            let url = '';
-            const anchorInP = linkElement.querySelector('a');
-            if (anchorInP) {
-                url = anchorInP.href;
-            } else {
-                url = linkElement.textContent.trim();
-            }
+  const imgs = block.querySelectorAll('picture');
+  const links = block.querySelectorAll('p');
 
-            const anchor = document.createElement('a');
-            anchor.href = url;
-            anchor.target = '_blank';
-            anchor.rel = 'noopener noreferrer';
-            anchor.appendChild(imgElement);
+  imgs.forEach((picture, index) => {
+    const img = picture.querySelector('img');
+    const link = links[index];
 
-            mainDiv.append(anchor);
-        }
-    });
-    block.replaceWith(mainDiv);
+    if (!img || !link) return;
+
+    img.className = 'footer-right-img';
+    img.loading = 'lazy';
+    img.alt = `Footer image ${index + 1}`;
+
+    const anchor = document.createElement('a');
+    const anchorInP = link.querySelector('a');
+    anchor.href = anchorInP?.href || link.textContent.trim();
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.appendChild(img);
+
+    mainDiv.appendChild(anchor);
+  });
+
+  block.replaceWith(mainDiv);
 }
