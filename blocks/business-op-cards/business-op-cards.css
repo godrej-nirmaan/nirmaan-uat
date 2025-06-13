@@ -2,7 +2,6 @@
     padding: 5px 40px;
 }
 
-/* Responsive adjustments */
 @media (width <=768px) {
     .business-op-cards-container {
         padding: 10px;

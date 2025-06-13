@@ -1,0 +1,20 @@
+.footer-right {
+    display: flex;
+    gap: 30px;
+    flex: 0.25;
+}
+
+.footer-left-wrapper {
+    flex: 0.8;
+}
+
+.footer-right-wrapper {
+    display: flex;
+    flex: 0.2;
+    width: 100%;
+}
+
+.footer-right-img{
+    width: 40px;
+    height: auto;
+}

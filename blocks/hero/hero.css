@@ -11,6 +11,7 @@
     text-align: left;
     font-family: var(--main-font);
     z-index: 0;
+    margin-top: 3px;
 }
 
 .hero-content {
