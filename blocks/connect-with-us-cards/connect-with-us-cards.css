@@ -11,6 +11,7 @@
   font-size: 2em;
   font-weight: bold;
   text-align: center;
+  margin: 0;
 }
 
 .connect-with-us-cards.block {
@@ -34,12 +35,11 @@
 }
 
 .contact-card-img {
-  height: auto;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
+  width: 40%;
 }
 
 .contact-card-img img {
@@ -79,10 +79,19 @@
   font-weight: bold;
   width: fit-content;
   align-self: flex-start;
+  transition: background-color 0.3s ease;
 }
 
-/* Responsive: Tablets and below */
-@media (width <= 768px) {
+.contact-card-button:hover {
+  background-color: #2ecc71;
+}
+
+/* === Responsive Styles === */
+@media (max-width: 768px) {
+  .connect-with-us-section {
+    padding: 30px;
+  }
+
   .contact-card {
     flex-direction: column;
     text-align: center;
@@ -90,19 +99,17 @@
 
   .contact-card-img {
     width: 100%;
-    height: 400px;
+    height: 250px;
     border-radius: 12px 12px 0 0;
-  }
-
-  .contact-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .contact-card-content {
     padding: 20px;
     align-items: center;
+  }
+
+  .contact-card-content p {
+    text-align: center;
   }
 
   .contact-card-button {
@@ -111,8 +118,7 @@
   }
 }
 
-/* Responsive: Small screens */
-@media (width <= 480px) {
+@media (max-width: 480px) {
   .connect-with-us-section {
     padding: 20px;
   }
@@ -123,5 +129,10 @@
 
   .contact-card-content p {
     font-size: 1.2em;
+  }
+
+  .contact-card-button {
+    font-size: 0.95em;
+    padding: 0.5rem 1rem;
   }
 }

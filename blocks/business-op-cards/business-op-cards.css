@@ -1,15 +1,9 @@
 .business-op-cards-container {
-    padding: 5px 40px;
+  padding: 5px 40px;
 }
 
-@media (width <=768px) {
-    .business-op-cards-container {
-        padding: 10px;
-    }
-}
-
-@media (width <=480px) {
-    .business-op-cards-container {
-        padding: 10px;
-    }
+@media (max-width: 768px) {
+  .business-op-cards-container {
+    padding: 10px;
+  }
 }
