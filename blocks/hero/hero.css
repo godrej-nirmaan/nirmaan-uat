@@ -1,120 +1,121 @@
 .hero {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    min-height: 60vh;
-    display: flex;
-    box-sizing: border-box;
-    color: #fff;
-    text-align: left;
-    font-family: var(--main-font);
-    z-index: 0;
-    margin-top: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: var(--main-font);
+  text-align: left;
+  z-index: 0;
+  margin-top: 3px;
 }
 
 .hero-content {
-    width: 100%;
-    max-width: 500px;
-    background: linear-gradient(to right, var(--purple), transparent);
-    border-radius: 10px;
-    z-index: 1;
-    padding: 4em;
+  max-width: 500px;
+  width: 100%;
+  background: transparent;
+  border-radius: 10px;
+  padding: 3rem;
+  z-index: 1;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin: 0 0 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero .highlight {
-    color: var(--light-green);
+  color: var(--light-green);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
 .cta-button {
-    background-color: var(--light-green);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+  background-color: var(--light-green);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: white;
-    color: var(--light-green);
-    border: 2px solid var(--light-green);
+  background-color: #fff;
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
 }
 
 /* Responsive Design */
-@media (width <= 1024px) {
-    .hero {
-        min-height: 50vh;
-        background-position: center top;
-    }
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 50vh;
+  }
 
-    .hero-content {
-        padding: 5rem;
-    }
+  .hero-content {
+    padding: 2.5rem;
+  }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
 
-    .hero p {
-        font-size: 1.1rem;
-    }
+  .hero p {
+    font-size: 1rem;
+  }
 }
 
-@media (width <= 768px) {
-    .hero {
-        min-height: 45vh;
-    }
+@media (max-width: 768px) {
+  .hero {
+    min-height: 45vh;
+  }
 
-    .hero-content {
-        padding: 3.75rem;
-    }
+  .hero-content {
+    padding: 2rem;
+  }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
 
-    .hero p {
-        font-size: 1rem;
-    }
+  .hero p {
+    font-size: 0.95rem;
+  }
 
-    .cta-button {
-        padding: 0.625rem 1.25rem;
-        font-size: 1rem;
-    }
+  .cta-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+  }
 }
 
-@media (width <= 480px) {
-    .hero {
-        min-height: 40vh;
-    }
+@media (max-width: 480px) {
+  .hero {
+    min-height: 40vh;
+  }
 
-    .hero-content {
-        padding: 2.5rem;
-    }
+  .hero-content {
+    padding: 1.5rem;
+  }
 
-    .hero h1 {
-        font-size: 1.5rem;
-    }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
 
-    .hero p {
-        font-size: 0.95rem;
-    }
+  .hero p {
+    font-size: 0.9rem;
+  }
 
-    .cta-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.95rem;
-    }
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
 }
