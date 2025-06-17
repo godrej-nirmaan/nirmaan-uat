@@ -6,7 +6,7 @@
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
-  margin: 20px auto;
+  margin: 20px;
   gap: 20px;
   justify-content: space-between;
   font-family: var(--main-font);
@@ -20,13 +20,19 @@
 
 .cb-section-2-button {
   padding: 10px 20px;
-  background-color: var(--purple, #6a1b9a);
+  background-color: var(--light-green);
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   font-family: var(--main-font);
+}
+
+.cb-section-2-button:hover {
+background-color: white;
+color: var(--light-green);
+border: 2px solid var(--light-green);
 }
 
 .cb-section-2-desc {

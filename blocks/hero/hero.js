@@ -2,18 +2,18 @@ export default function decorate(block) {
   const paragraphs = block.querySelectorAll('p');
   const bgImage = block.querySelector('picture img');
 
-  if (paragraphs.length < 3 || !bgImage) return;
+  if (paragraphs.length < 4 || !bgImage) return;
 
-  const [headingText, subHeadingText, descText] = [...paragraphs].map(p => p.textContent.trim());
+  const [headingText, subHeadingText, descText, additionalText] = [...paragraphs].map(p => p.textContent.trim());
   const imageUrl = bgImage.src;
 
   block.innerHTML = '';
 
-  const hero = createHeroSection(imageUrl, headingText, subHeadingText, descText);
+  const hero = createHeroSection(imageUrl, headingText, subHeadingText, descText, additionalText);
   block.appendChild(hero);
 }
 
-function createHeroSection(imageUrl, heading, subHeading, description) {
+function createHeroSection(imageUrl, heading, subHeading, description, additionalText) {
   const hero = document.createElement('div');
   hero.className = 'hero';
   hero.style.backgroundImage = `url(${imageUrl})`;
@@ -23,6 +23,11 @@ function createHeroSection(imageUrl, heading, subHeading, description) {
 
   content.appendChild(createHeading(heading, subHeading));
   content.appendChild(createParagraph(description));
+
+  const additionalLine = createParagraph(additionalText);
+  additionalLine.className = 'additional-line';
+  content.appendChild(additionalLine);
+
   content.appendChild(createCTA());
 
   hero.appendChild(content);

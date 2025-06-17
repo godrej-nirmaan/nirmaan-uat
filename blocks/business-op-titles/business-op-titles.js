@@ -3,7 +3,7 @@ export default function decorate(block) {
 
   const images = block.querySelectorAll('picture');
   const titles = block.querySelectorAll('h2');
-  const descriptions = block.querySelectorAll('p');
+  const description1s = block.querySelectorAll('p');
 
   block.textContent = '';
 
@@ -29,10 +29,10 @@ export default function decorate(block) {
 
   mainContainer.appendChild(imageTitleContainer);
 
-  if (descriptions.length > 0) {
+  if (description1s.length > 0) {
     const descEl = document.createElement('p');
-    descEl.className = 'description';
-    descEl.textContent = descriptions[0].textContent;
+    descEl.className = 'description1';
+    descEl.textContent = description1s[0].textContent;
     mainContainer.appendChild(descEl);
   }
 

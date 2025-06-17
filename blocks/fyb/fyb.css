@@ -11,13 +11,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 2em;
+  padding: 30px 60px;
   gap: 2em;
 }
 
 .fyb-title {
-  font-size: 2.5em;
-  font-weight: bold;
+  font-size: 40px;
+  margin: 0;
+  font-weight: 700;
+  width: 65%;
 }
 
 .fyb-apply-now-button,
@@ -27,14 +29,15 @@
   border-radius: 10px;
   cursor: pointer;
   max-width: 10em;
-  width: 100%;
+  width: 140px;
   box-sizing: border-box;
 }
 
 .fyb-apply-now-button {
   background-color: var(--light-green);
   color: white;
-  border: none;
+  border: 2px solid var(--light-green);
+  margin-bottom: 20px;
 }
 
 .fyb-watch-now-button {
@@ -44,14 +47,14 @@
 }
 
 .fyb-desc {
-  font-size: 1.2rem;
-  color: #555;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .fyb-hastag {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--light-green);
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: -10px;
 }
 
 /* Responsive styles */
