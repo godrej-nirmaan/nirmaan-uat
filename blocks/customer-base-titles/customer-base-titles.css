@@ -15,19 +15,39 @@
 }
 
 .image-wrapper picture img {
-  max-width: 100%;
   width: 52px;
   height: 42px;
+  object-fit: contain;
+  display: block;
 }
 
 .title {
   font-size: 32px;
   font-weight: 700;
   color: #222;
+  margin: 0;
 }
 
 .description1 {
   font-size: 16px;
   font-weight: 300;
   margin-left: 10px;
+  color: #444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-left: 0;
+  }
+
+  .image-title-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
