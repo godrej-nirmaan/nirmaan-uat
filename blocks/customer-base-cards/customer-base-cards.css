@@ -9,21 +9,28 @@
 .promo-card {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
   width: 275px;
   display: flex;
   flex-direction: column;
   font-family: var(--main-font);
   flex: 1 1 275px;
 }
+.card-service{ 
+  margin: 0px;
+  font-size: 18px;
+  font-weight: 500;
+}
 
 .card-header {
   background-color: var(--purple);
   color: white;
-  padding: 16px;
-  font-size: var(--small-body-size);
+  padding: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .card-body {
@@ -33,9 +40,7 @@
   padding: 20px;
 }
 
-.logo-section,
-.upper-section,
-.promo-section {
+.logo-section {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -46,8 +51,7 @@
   font-size: var(--xlarge-body-size);
 }
 
-.logo-text,
-.promo-text {
+.logo-text {
   font-size: var(--small-body-size);
   color: #555;
 }
@@ -58,15 +62,30 @@
 }
 
 .description {
-  font-size: var(--medium-body-size);
-  margin: 12px 0;
-  font-weight: 700;
+  margin: 20px 0 0 0;
+  font-weight: 700 !important;
+  min-height: 20%;
+  font-size: 14px;
+}
+
+.upper-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--purple);
   margin: 16px 0;
+}
+
+.promo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 6px;
 }
 
 .promo-icon {
@@ -74,7 +93,12 @@
   color: white;
   background-color: var(--purple);
   padding: 10px;
-  border-radius: 50%;
+  border-radius: 100%;
+}
+
+.promo-text {
+  color: #333;
+  font-size: 14px;
 }
 
 .card-buttons {
@@ -89,10 +113,12 @@
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
 }
 
 .btn.primary {
@@ -118,27 +144,29 @@
   border-radius: 10px;
 }
 
-/* === Carousel Styles === */
+/* Carousel styles (if used) */
 .carousel-wrapper {
   position: relative;
-  width: 100%;
+  width: calc(100% + 40px); 
   overflow: hidden;
   padding: 20px 0;
+  padding-top: 60px;
+  margin-left: 20px; 
 }
 
 .carousel {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  padding: 10px 40px;
+  padding: 10px 0px 10px 40px; 
   scroll-snap-type: x mandatory;
-  gap: 15px;
 }
 
 .carousel > .promo-card {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 300px;
+  width: 285px;
+  margin-right: 25px;
 }
 
 .carousel::-webkit-scrollbar {
@@ -147,29 +175,32 @@
 
 .carousel-btn {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  top: 5%;
+  transform: translateY(-40%);
   background: var(--purple);
   color: white;
   border: none;
-  font-size: 2rem;
+  font-size: 32px;
   cursor: pointer;
   z-index: 1;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .carousel-btn.prev {
-  left: 10px;
+  left: 1270px;
 }
-
+.carousel-titles{
+  margin-bottom: -35px;
+}
 .carousel-btn.next {
   right: 10px;
+  margin-right: 20px;
 }
 
-/* === Responsive Styles === */
-@media (max-width: 768px) {
+/* Responsive adjustments */
+@media (width <= 768px) {
   .carousel {
     padding: 10px 20px;
     gap: 10px;
@@ -180,7 +211,7 @@
   }
 
   .carousel-btn {
-    font-size: 1.5rem;
+    font-size: 1em;
     padding: 8px;
   }
 
@@ -189,15 +220,15 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .promo-wrapper {
     flex-direction: column;
     align-items: stretch;
   }
 
   .card-buttons {
-    flex-direction: column;
-    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .btn {

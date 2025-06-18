@@ -7,31 +7,19 @@
 }
 
 .fyb-section {
-  background-color: #fff;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 2em;
+  padding: 30px 60px;
   gap: 2em;
 }
 
 .fyb-title {
-  font-size: 2.5em;
-  font-weight: bold;
+  font-size: 40px;
   margin: 0;
-}
-
-.fyb-desc {
-  font-size: 1.2rem;
-  color: #555;
-  margin: 0;
-}
-
-.fyb-hastag {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--light-green);
-  margin: 0;
+  font-weight: 700;
+  width: 65%;
 }
 
 .fyb-apply-now-button,
@@ -41,30 +29,36 @@
   border-radius: 10px;
   cursor: pointer;
   max-width: 10em;
-  width: 100%;
+  width: 140px;
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
 }
 
 .fyb-apply-now-button {
   background-color: var(--light-green);
-  color: #fff;
-  border: none;
+  color: white;
+  border: 2px solid var(--light-green);
+  margin-bottom: 20px;
 }
 
 .fyb-watch-now-button {
-  background-color: #fff;
+  background-color: white;
   color: var(--light-green);
   border: 2px solid var(--light-green);
 }
 
-.fyb-watch-now-button:hover {
-  background-color: var(--light-green);
-  color: #fff;
+.fyb-desc {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.fyb-hastag {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: -10px;
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .fyb-section {
     flex-direction: column;
     align-items: center;
@@ -72,16 +66,16 @@
   }
 
   .fyb-title {
-    font-size: 1.8em;
-  }
-
-  .fyb-desc,
-  .fyb-hastag {
-    font-size: 1rem;
+    font-size: 1.5em;
   }
 
   .fyb-apply-now-button,
   .fyb-watch-now-button {
     max-width: 100%;
+  }
+
+  .fyb-desc,
+  .fyb-hastag {
+    font-size: 1rem;
   }
 }
