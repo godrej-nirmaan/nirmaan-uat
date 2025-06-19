@@ -11,7 +11,7 @@ export default function decorate(block) {
 
     if (!img || !link) return;
 
-    img.className = 'footer-right-img';
+    img.className = `footer-right-img-${index + 1}`;
     img.loading = 'lazy';
     img.alt = `Footer image ${index + 1}`;
 
