@@ -14,17 +14,17 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
 
-  while (fragment.firstElementChild) {
-    nav.append(fragment.firstElementChild);
-  }
+  Array.from(fragment.children).forEach((child) => nav.appendChild(child));
 
   ['brand', 'sections', 'tools'].forEach((cls, i) => {
     nav.children[i]?.classList.add(`nav-${cls}`);
   });
 
   const brandLink = nav.querySelector('.nav-brand .button');
-  brandLink?.classList.remove('button');
-  brandLink?.closest('.button-container')?.classList.remove('button-container');
+  if (brandLink) {
+    brandLink.classList.remove('button');
+    brandLink.closest('.button-container')?.classList.remove('button-container');
+  }
 
   let navTools = nav.querySelector('.nav-tools');
   if (!navTools) {
@@ -68,6 +68,4 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.appendChild(navWrapper);
-
-  console.log('Fragment content:', fragment);
 }

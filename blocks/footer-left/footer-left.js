@@ -1,9 +1,7 @@
 export default function decorate(block) {
-  console.log("FAQ left item", block);
-
-  const pictures = block.querySelectorAll('picture');
-  const paragraphs = block.querySelectorAll('p');
-  const links = block.querySelectorAll('a');
+  const pictures = Array.from(block.querySelectorAll('picture'));
+  const paragraphs = Array.from(block.querySelectorAll('p'));
+  const links = Array.from(block.querySelectorAll('a'));
 
   const mainDiv = document.createElement('div');
   mainDiv.className = 'footer-left';
@@ -18,14 +16,12 @@ export default function decorate(block) {
   const linkDiv = document.createElement('div');
   linkDiv.className = 'footer-links';
 
-  paragraphs.forEach((para, i) => {
-    if (i < paragraphs.length - 2) {
-      const link = document.createElement('a');
-      link.href = '#';
-      link.textContent = para.textContent.trim();
-      link.className = 'footer-link';
-      linkDiv.appendChild(link);
-    }
+  paragraphs.slice(0, paragraphs.length - 2).forEach((para) => {
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = para.textContent.trim();
+    link.className = 'footer-link';
+    linkDiv.appendChild(link);
   });
 
   const divider = document.createElement('div');
