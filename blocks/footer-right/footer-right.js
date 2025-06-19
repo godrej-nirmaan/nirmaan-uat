@@ -2,22 +2,22 @@ export default function decorate(block) {
   const mainDiv = document.createElement('div');
   mainDiv.className = 'footer-right';
 
-  const pictures = Array.from(block.querySelectorAll('picture'));
-  const paragraphs = Array.from(block.querySelectorAll('p'));
+  const imgs = block.querySelectorAll('picture');
+  const links = block.querySelectorAll('p');
 
-  pictures.forEach((picture, index) => {
+  imgs.forEach((picture, index) => {
     const img = picture.querySelector('img');
-    const paragraph = paragraphs[index];
+    const link = links[index];
 
-    if (!img || !paragraph) return;
+    if (!img || !link) return;
 
     img.className = `footer-right-img-${index + 1}`;
     img.loading = 'lazy';
     img.alt = `Footer image ${index + 1}`;
 
     const anchor = document.createElement('a');
-    const anchorInParagraph = paragraph.querySelector('a');
-    anchor.href = anchorInParagraph?.href || paragraph.textContent.trim();
+    const anchorInP = link.querySelector('a');
+    anchor.href = anchorInP?.href || link.textContent.trim();
     anchor.target = '_blank';
     anchor.rel = 'noopener noreferrer';
     anchor.appendChild(img);
