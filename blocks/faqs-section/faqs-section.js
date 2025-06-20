@@ -1,5 +1,4 @@
 export default function decorate(block) {
-  console.log("FAQ block", block);
 
   Array.from(block.children).forEach(({ children: [label, body] }) => {
     const details = document.createElement('details');
@@ -9,9 +8,11 @@ export default function decorate(block) {
     summary.className = 'accordion-item-label';
     summary.append(...label.childNodes);
 
-    body.className = 'accordion-item-body';
+    const bodyDiv = document.createElement('div');
+    bodyDiv.className = 'accordion-item-body';
+    bodyDiv.append(...body.childNodes);
 
-    details.append(summary, body);
+    details.append(summary, bodyDiv);
     block.replaceChild(details, label.parentElement);
   });
 }
