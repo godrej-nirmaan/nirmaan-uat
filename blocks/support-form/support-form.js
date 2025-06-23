@@ -33,7 +33,7 @@ function createSupportForm(formHeading, fieldTexts) {
 
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
-  submitButton.textContent = 'Submit';
+  submitButton.textContent = 'Proceed';
   form.appendChild(submitButton);
 
   formContent.appendChild(formHeadingElement);
