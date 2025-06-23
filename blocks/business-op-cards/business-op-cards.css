@@ -2,15 +2,8 @@
     padding: 2% 5%;
 }
 
-/* Responsive adjustments */
-@media (width <=768px) {
-    .business-op-cards-container {
-        padding: 20px;
-    }
-}
-
-@media (width <=480px) {
-    .business-op-cards-container {
-        padding: 10px;
-    }
+@media (max-width: 768px) {
+  .business-op-cards-container {
+    padding: 10px;
+  }
 }

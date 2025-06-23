@@ -4,9 +4,12 @@
   padding: 20px 0;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+  background-color: #fff;
   text-align: center;
   width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
   font-size: 1.2rem;
   font-family: 'Helvetica Neue', sans-serif;
@@ -41,8 +44,8 @@
   background-color: var(--purple);
 }
 
-/* Medium screens (width <= 900px) */
-@media (width <= 900px) {
+/* Medium screens */
+@media (max-width: 900px) {
   .banner-container {
     flex-direction: column;
     padding: 15px;
@@ -60,8 +63,8 @@
   }
 }
 
-/* Small screens (width <= 600px) */
-@media (width <= 600px) {
+/* Small screens */
+@media (max-width: 600px) {
   .banner-container {
     padding: 10px;
   }
