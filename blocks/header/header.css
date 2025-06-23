@@ -105,6 +105,10 @@ nav[aria-expanded='true'] .nav-sections {
   color: inherit;
   padding: 12px 24px;
   display: block;
+  border-bottom: 2px solid #fff;
+  font-family: 'HelveticaNeueLT 55 Roman';
+  font-weight: 400;
+  color: #000;
 }
 
 /* === Tools === */
