@@ -1,0 +1,53 @@
+/* === Support Left Section === */
+.support-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 60%; 
+  margin-top: 8%;
+}
+
+.support-left h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 40px;
+    font-family: ProductSansRegular;
+}
+.support-phone, .support-email {
+  gap: 10px;
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.support-left p{
+  margin-bottom: 0;
+  color: #000;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 15px;
+  font-family: system-ui;
+}
+.support-left a{
+  margin-bottom: 0;
+  color: #000;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 15px;
+  font-family: system-ui;
+}
+
+.support-phone img {
+  width: 35px; 
+  height: 34px; 
+}
+.support-email img {
+  width: 35px; 
+  height: 22px; 
+}
