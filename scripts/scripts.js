@@ -13,6 +13,7 @@ import {
   loadCSS,
 } from './aem.js';
 
+document.title = 'Godrej Nirmaan: Fueling MSME Growth & Expansion';
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
