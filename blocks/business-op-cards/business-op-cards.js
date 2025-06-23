@@ -158,8 +158,11 @@ export default function decorate(block) {
     }
   });
 
-  carouselWrapper.appendChild(prevBtn);
   carouselWrapper.appendChild(carousel);
-  carouselWrapper.appendChild(nextBtn);
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'carousel-btn-container';
+  buttonContainer.appendChild(prevBtn);
+  buttonContainer.appendChild(nextBtn);
+  carouselWrapper.appendChild(buttonContainer);
   block.appendChild(carouselWrapper);
 }

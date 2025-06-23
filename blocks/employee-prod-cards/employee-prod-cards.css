@@ -1,6 +1,6 @@
 .employee-prod-cards-container {
-  background-color: var(--light-purple-bg);
-  padding: 5px 50px;
+    background-color: var(--light-purple-bg);
+    padding: 2% 5%;
 }
 
 /* Responsive adjustments */

@@ -87,7 +87,12 @@ export default function decorate(block) {
     if (Math.abs(diff) > 50) scrollCarousel(diff > 0 ? 1 : -1);
   });
 
-  carouselWrapper.append(prevBtn, carousel, nextBtn);
+  carouselWrapper.appendChild(carousel);
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'carousel-btn-container';
+  buttonContainer.appendChild(prevBtn);
+  buttonContainer.appendChild(nextBtn);
+  carouselWrapper.appendChild(buttonContainer);
   fragment.appendChild(carouselWrapper);
   block.appendChild(fragment);
 }

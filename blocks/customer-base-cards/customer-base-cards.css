@@ -20,6 +20,7 @@
   margin: 0px;
   font-size: 18px;
   font-weight: 500;
+  font-family: ProductSansRegular;
 }
 
 .card-header {
@@ -31,6 +32,7 @@
   text-align: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  font-family: 'HelveticaNeueLT 45';
 }
 
 .card-body {
@@ -63,7 +65,6 @@
 
 .description {
   margin: 20px 0 0 0;
-  font-weight: 700 !important;
   min-height: 20%;
   font-size: 14px;
 }
@@ -97,8 +98,11 @@
 }
 
 .promo-text {
-  color: #333;
   font-size: 14px;
+  margin: 0;
+  width: calc(100% - 50px);
+  font-weight: 450;
+  line-height: 16px;
 }
 
 .card-buttons {
@@ -119,6 +123,7 @@
   width: 100px;
   height: 40px;
   font-size: 14px;
+  font-family: 'HelveticaNeueLT 55 Roman';
 }
 
 .btn.primary {
@@ -134,7 +139,7 @@
 
 .customer-base-cards-container {
   background-color: var(--green-bg);
-  padding: 5px 50px;
+  padding: 2% 5%;
 }
 
 .card-image {
@@ -144,10 +149,9 @@
   border-radius: 10px;
 }
 
-/* Carousel styles (if used) */
 .carousel-wrapper {
   position: relative;
-  width: calc(100% + 40px); 
+  width: calc(100% + 60px); 
   overflow: hidden;
   padding: 20px 0;
   padding-top: 60px;
@@ -188,9 +192,13 @@
   border-radius: 20%;
 }
 
-.carousel-btn.prev {
-  left: 1270px;
+.carousel-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 82%;
 }
+
 .carousel-titles{
   margin-bottom: -35px;
 }
