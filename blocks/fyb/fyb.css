@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 30px 60px;
+  padding: 2% 8%;
   gap: 2em;
 }
 
@@ -20,6 +20,7 @@
   margin: 0;
   font-weight: 700;
   width: 65%;
+  font-family: ProductSansRegular;
 }
 
 .fyb-apply-now-button,
@@ -49,12 +50,14 @@
 .fyb-desc {
   font-size: 22px;
   font-weight: 500;
+  font-family: system-ui;
 }
 
 .fyb-hastag {
   font-size: 22px;
   font-weight: 700;
   margin-top: -10px;
+  font-family: 'HelveticaNeueLT 65';
 }
 
 /* Responsive styles */

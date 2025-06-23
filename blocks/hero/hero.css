@@ -20,6 +20,7 @@
     border-radius: 10px;
     z-index: 1;
     padding: 4em;
+    padding-left: 6%;
 }
 
 .hero h1 {
@@ -28,6 +29,7 @@
     line-height: 70px;
     width: 800px;
     margin-bottom: 0px;
+    font-family: 'HelveticaNeueLT 65';
 }
 
 /* .hero .highlight {
@@ -58,7 +60,7 @@
 }
 
 .additional-line {
-    margin-top: -20px;
+    margin-top: 35px;
 }
 
 /* Responsive Design */
