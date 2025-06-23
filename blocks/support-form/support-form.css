@@ -1,0 +1,71 @@
+/* === Support Form Section === */
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    width: 70%;
+    margin-left: 27%;
+    margin-top: -17%;
+    margin-bottom: 2%;
+  }
+
+  .support-form.support.block{
+    background-color: #fff;
+  }
+  
+  .support-form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    font-family: system-ui;
+    margin: 0 32px;
+  }
+  
+  .support-form label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+  }
+  .section.support-left-container.support-form-container {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+  
+  .support-form input,
+  .support-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #712975;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #1a1818;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  
+  .support-form button {
+    padding: 10px 20px;
+    background-color: #83c341;
+    border-radius: 11px;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'HelveticaNeueLT 55 Roman';
+    transition: background-color 0.3s ease;
+    margin-left: 40%;
+  }
+  
+  .support-form button:hover {
+    background-color: #6fa02e;
+  }
+
+  form {
+    width: 90%;
+    margin-left: 5%;
+}
