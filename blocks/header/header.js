@@ -6,8 +6,6 @@ export default async function decorate(block) {
     ? new URL(getMetadata('nav'), window.location).pathname 
     : '/fragments/nav';
 
-  console.log('Loading navigation from:', navPath);
-
   const fragment = await loadFragment(navPath);
   if (!fragment) return;
 
@@ -69,5 +67,25 @@ export default async function decorate(block) {
   block.textContent = '';
   block.appendChild(navWrapper);
 
-  console.log('Fragment content:', fragment);
+  const navItems = nav.querySelectorAll('.nav-sections ul li a');
+  const activeHref = localStorage.getItem('activeNavItem');
+  if (activeHref) {
+    navItems.forEach((item) => {
+      if (item.href === activeHref) {
+        item.classList.add('active');
+      }
+    });
+  }
+
+  navItems.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      navItems.forEach((navItem) => {
+        navItem.classList.remove('active');
+      });
+      item.classList.add('active');
+      localStorage.setItem('activeNavItem', item.href);
+      window.location.href = item.href;
+    });
+  });
 }

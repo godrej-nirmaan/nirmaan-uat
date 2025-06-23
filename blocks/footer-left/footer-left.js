@@ -1,6 +1,4 @@
 export default function decorate(block) {
-  console.log("FAQ left item", block);
-
   const pictures = block.querySelectorAll('picture');
   const paragraphs = block.querySelectorAll('p');
   const links = block.querySelectorAll('a');
