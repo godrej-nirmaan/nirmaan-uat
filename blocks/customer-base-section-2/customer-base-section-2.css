@@ -6,10 +6,11 @@
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
-  margin: 20px;
   gap: 20px;
   justify-content: space-between;
   font-family: var(--main-font);
+  max-width: 1140px;
+  margin: 30px auto 60px;
 }
 
 .cb-card-image {
@@ -26,7 +27,8 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  font-family: var(--main-font);
+  font-family: 'HelveticaNeueLT 55 Roman';
+  font-size: 18px;
 }
 
 .cb-section-2-button:hover {
@@ -36,8 +38,13 @@ border: 2px solid var(--light-green);
 }
 
 .cb-section-2-desc {
-  font-size: var(--big-body-size);
-  font-weight: 700;
+    margin: 0;
+    font-size: 18px;
+    width: 52vw;
+    color: #000;
+    line-height: 25.54px;
+    font-weight: 400;
+    font-family: system-ui;
 }
 
 .cb-section-2-wrapper {
