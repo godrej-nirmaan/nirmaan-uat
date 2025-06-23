@@ -3,7 +3,7 @@ nav#nav {
   display: flex;
   align-items: center;
   font-family: var(--main-font);
-  padding: 20px;
+  padding: 0 5%;
   position: relative;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -97,18 +97,38 @@ nav[aria-expanded='true'] .nav-sections {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 50px !important;
 }
 
 .nav-sections a {
   text-decoration: none;
   color: inherit;
-  padding: 12px 24px;
+  padding: 25px 20px !important;
   display: block;
-  border-bottom: 2px solid #fff;
   font-family: 'HelveticaNeueLT 55 Roman';
   font-weight: 400;
   color: #000;
+  font-size: 16px;
+}
+
+.nav-sections ul li a {
+  border-bottom: none;
+  color: #000;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.nav-sections ul li a.active{
+  border-bottom: 5px solid #83c341;
+  color: #83c341;
+  font-weight: 600;
+}
+.nav-sections ul li a:hover {
+  border-bottom: 2px solid #83c341;
+  transition: all ease;
+}
+.nav-sections ul li a.active:hover {
+  border-bottom: 5px solid #83c341; 
+  color: #83c341; 
 }
 
 /* === Tools === */
@@ -122,6 +142,7 @@ nav[aria-expanded='true'] .nav-sections {
   z-index: 10;
   padding: 16px;
   margin-left: 80px !important;
+  height: 40px;
 }
 
 nav[aria-expanded='true'] .nav-tools {
@@ -193,7 +214,6 @@ nav[aria-expanded='true'] .nav-tools {
 
   .nav-sections ul li:hover {
     color: var(--light-green);
-    text-decoration: underline;
     cursor: pointer;
   }
 
