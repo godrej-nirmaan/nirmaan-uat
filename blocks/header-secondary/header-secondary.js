@@ -2,9 +2,9 @@ import { loadFragment } from '../fragment/fragment.js';
 import { getMetadata } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
-  const navPath = getMetadata('nav') 
-    ? new URL(getMetadata('nav'), window.location).pathname 
-    : '/fragments/nav';
+  const navPath = getMetadata('nav-new') 
+    ? new URL(getMetadata('nav-new'), window.location).pathname 
+    : '/fragments/nav-secondary';
 
   const fragment = await loadFragment(navPath);
   if (!fragment) return;
@@ -59,30 +59,14 @@ export default async function decorate(block) {
 
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.appendChild(nav);
-  
-  // Create the empty white box navbar
-  const whiteBoxNav = document.createElement('div');
-  whiteBoxNav.className = 'nav-white-box';
-  
-  // Create the empty green box
-  const greenBoxNav = document.createElement('div');
-  greenBoxNav.className = 'nav-green-box';
-  
-  // Create the small white box below the green box
-  const smallWhiteBoxNav = document.createElement('div');
-  smallWhiteBoxNav.className = 'nav-small-white-box';
-  
-  // Append the white box, green box, and small white box below the main navbar
+
   block.textContent = '';
   block.appendChild(navWrapper);
-  block.appendChild(whiteBoxNav);
-  block.appendChild(greenBoxNav);
-  block.appendChild(smallWhiteBoxNav);
-  
+
   const navItems = nav.querySelectorAll('.nav-sections ul li a');
   const activeHref = localStorage.getItem('activeNavItem');
   if (activeHref) {
@@ -92,7 +76,7 @@ export default async function decorate(block) {
       }
     });
   }
-  
+
   navItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();

@@ -1,21 +1,18 @@
 .banner-container {
-  display: flex;
-  background-color: white;
-  padding: 20px 0;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 10px 0;
-  background-color: #fff;
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 1.2rem;
-  font-family: 'Helvetica Neue', sans-serif;
-  flex-wrap: nowrap; 
-  overflow-x: auto;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 auto;
+    margin-top: -28px;
 }
 
 .banner-section {
@@ -28,6 +25,7 @@
   box-sizing: border-box;
   min-width: 0; 
   font-family: "HelveticaNeueLT 55 Roman";
+  line-height: 30px;
 }
   
 .features {
@@ -39,7 +37,7 @@
   position: absolute;
   right: 0;
   top: -5%;
-  height: 115%;
+  height: 100%;
   width: 1px;
   background-color: var(--purple);
 }

@@ -1,7 +1,6 @@
 .hero {
     position: relative;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     min-height: 60vh;
@@ -11,6 +10,8 @@
     text-align: left;
     font-family: var(--main-font);
     z-index: 0;
+    top: -17px;
+    height: 500px;
 }
 
 .hero-content {
