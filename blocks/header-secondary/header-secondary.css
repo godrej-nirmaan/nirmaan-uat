@@ -180,60 +180,6 @@ nav[aria-expanded='true'] .nav-tools {
   transform: translateY(-1px);
 }
 
-/* === White Box Navbar === */
-.nav-white-box {
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 10px 5%;
-  position: relative;
-  margin-top: 7px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-white-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 24px;
-}
-
-.nav-white-box a {
-  text-decoration: none;
-  color: #000;
-  font-family: var(--main-font);
-  font-size: 1rem;
-  font-weight: 400;
-  transition: all 0.3s ease;
-}
-
-.nav-white-box a:hover {
-  color: var(--light-green);
-  font-weight: 600;
-}
-
-/* === Green Box Navbar === */
-.nav-green-box {
-  width: 100%;
-  background: #83c321;
-  height: 25px;
-}
-
-.nav-small-white-box {
-  width: 23%;
-  background: white;
-  height: 65px;
-  position: relative;
-  margin-top: -35px;
-  margin-left: 0;
-  z-index: 1;
-  border: none;
-  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
-}
-
 /* === Desktop View === */
 @media (min-width: 900px) {
   .nav-hamburger {
